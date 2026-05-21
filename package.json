@@ -1,0 +1,22 @@
+{
+  "name": "shortlinks",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Modulo 1: Servicio de Acortamiento de URLs",
+  "main": "dist/handlers/shorten.js",
+  "scripts": {
+    "build": "esbuild src/handlers/shorten.ts --bundle --minify --sourcemap --platform=node --target=node20 --outfile=dist/handlers/shorten.js",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.500.0",
+    "@aws-sdk/lib-dynamodb": "^3.500.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.130",
+    "@types/node": "^20.11.0",
+    "esbuild": "^0.20.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  }
+}
