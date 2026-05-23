@@ -77,10 +77,17 @@ resource "aws_cloudwatch_log_group" "lambda_logs" {
   retention_in_days = 7
 }
 
-# 4. Configuración de API Gateway (HTTP API)
+# 4. Configuración de API Gateway (HTTP API) con CORS habilitado
 resource "aws_apigatewayv2_api" "http_api" {
   name          = "url-shortener-api-${var.environment}"
   protocol_type = "HTTP"
+
+  cors_configuration {
+    allow_origins = ["*"] # Permite que cualquier frontend (local, desarrollo o prod) le pegue
+    allow_methods = ["POST", "OPTIONS"]
+    allow_headers = ["content-type", "authorization"]
+    max_age       = 300
+  }
 }
 
 resource "aws_apigatewayv2_stage" "api_stage" {
