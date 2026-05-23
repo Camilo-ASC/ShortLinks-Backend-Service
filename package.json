@@ -6,7 +6,9 @@
   "main": "dist/handlers/shorten.js",
   "scripts": {
     "build": "esbuild src/handlers/shorten.ts --bundle --minify --sourcemap --platform=node --target=node20 --outfile=dist/handlers/shorten.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.500.0",
@@ -15,8 +17,10 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.130",
     "@types/node": "^20.11.0",
+    "@vitest/coverage-v8": "^4.1.7",
     "esbuild": "^0.20.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^4.1.7"
   }
 }
